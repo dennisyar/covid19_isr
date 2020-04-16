@@ -6,5 +6,6 @@ Some deaths were not published, but only the total updated cumulative number of 
 So there are might be some errors/missings in my data.
 
 This repository has:
-1) data file in ods format
+1) data file in xlsx format
 2) html file with histograms by age groups
+3) R markdown file to build HTML report
