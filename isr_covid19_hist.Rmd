@@ -1,0 +1,81 @@
+---
+date: "April 15, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# COVID-19 victims in Israel
+There is no official public data about all victims of COVID-19 in Israel.  
+Ministry of Health publishes daily summary statistics - number of deaths total and per each hospital.  
+But there is no any additional data about victims.  
+  
+All detailed data I gather is from news web sites: ynet.co.il and rotter.co.il.  
+Not all victims were published on media web sites so my data is not complete.  
+Also some typo errors might be occured during data collection.  
+
+
+```{r import data, echo=FALSE, warning=FALSE,message=FALSE}
+library(openxlsx)
+library(ggplot2)
+library(dplyr)
+library(qwraps2)
+#library(knitr)
+
+# version 1 - sheet ynet
+#df = read.xlsx('corona_deaths_hist_israel.xlsx',sheet='ynet',startRow=3,cols=(0:6))
+#df = df[!is.na(df[["date"]]),]
+#df["date"] = format(as.Date(df[["date"]], origin="1899-12-30"))
+#df[df$sex=="ז", "sex"] = "M"
+#df[df$sex=="נ", "sex"] = "W"
+
+# vesrion 2 - sheet 10yr
+df = read.xlsx('corona_deaths_hist_israel.xlsx',sheet='10yr',cols=(0:7))
+df = df[!is.na(df[["date"]]),]
+df["date"] = format(as.Date(df[["date"]], origin="1899-12-30"))
+df[df$sex=="m", "sex"] = "M"
+df[df$sex=="w", "sex"] = "W"
+```
+
+  
+```{r histogram, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#df$cut <-  cut(df$age, seq(0,100,10))
+p = ggplot(df, aes(age)) + geom_histogram(color="black", fill = "dodgerblue3", alpha=0.3, breaks=seq(0,100,10)) +
+  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-16")
+  #stat_bin(aes(age), breaks=seq(0,100,10))
+# breaks=seq(0,100,10)
+p
+```
+```{r histogram2, echo=FALSE}
+p2 = ggplot(df, aes(x=age, fill=sex,color=sex)) + geom_histogram(alpha=0.3, breaks=seq(0,100,10)) +
+  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-16")
+
+p2
+```
+
+Some statistics about victims.  
+Age:
+```{r, echo=FALSE}
+#summary(df$age)
+cat("Number of observations = ",as.character(count(df["age"])),". Officially published number is 142. \n")
+cat("Number of Men = ",as.character(sum(df$sex=="M")), "(",as.character(round(sum(df$sex=="M")/count(df["age"])*100,2)),"%)","\n")
+cat("Number of Women = ",as.character(sum(df$sex=="W")), "(",as.character(round(sum(df$sex=="W")/count(df["age"])*100,2)),"%)","\n")
+cat("Minimum age = ",as.character(min(df$age)),"\n")
+cat("Maximum age = ",as.character(max(df$age)),"\n")
+cat("Average age = ",as.character(round(mean(df$age),2)),"\n")
+cat("Median age = ",as.character(median(df$age)),"\n")
+#max(df["age"])
+#table(df$sex)
+```
+Age by sex:
+```{r, echo=FALSE,warning=FALSE}
+stat1 = 
+df %>% group_by(sex) %>% summarise(mean = mean(age), median = median(age), count = n())
+stat1 = data.frame(stat1)
+print(stat1,row.names = FALSE)
+```
+  
+There is no actual information how many men/women are infected.  
+Here is the last info the Ministry of Health has published:  
