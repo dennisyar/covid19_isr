@@ -1,13 +1,15 @@
 ---
-date: "April 15, 2020"
+title: "COVID-19 victims in Israel"
+author: "Dennis Yaroshevich"
+date: "April 17, 2020, 19:48 GMT+3 "
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-# COVID-19 victims in Israel
+--------------------------------------------------------------------------------------------
+  
 There is no official public data about all victims of COVID-19 in Israel.  
 Ministry of Health publishes daily summary statistics - number of deaths total and per each hospital.  
 But there is no any additional data about victims.  
@@ -43,14 +45,14 @@ df[df$sex=="w", "sex"] = "W"
 ```{r histogram, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 #df$cut <-  cut(df$age, seq(0,100,10))
 p = ggplot(df, aes(age)) + geom_histogram(color="black", fill = "dodgerblue3", alpha=0.3, breaks=seq(0,100,10)) +
-  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-16")
+  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-17")
   #stat_bin(aes(age), breaks=seq(0,100,10))
 # breaks=seq(0,100,10)
 p
 ```
 ```{r histogram2, echo=FALSE}
 p2 = ggplot(df, aes(x=age, fill=sex,color=sex)) + geom_histogram(alpha=0.3, breaks=seq(0,100,10)) +
-  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-16")
+  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-17")
 
 p2
 ```
@@ -59,7 +61,7 @@ Some statistics about victims.
 Age:
 ```{r, echo=FALSE}
 #summary(df$age)
-cat("Number of observations = ",as.character(count(df["age"])),". Officially published number is 142. \n")
+cat("Number of observations = ",as.character(count(df["age"])),". Officially published number is 151. \n")
 cat("Number of Men = ",as.character(sum(df$sex=="M")), "(",as.character(round(sum(df$sex=="M")/count(df["age"])*100,2)),"%)","\n")
 cat("Number of Women = ",as.character(sum(df$sex=="W")), "(",as.character(round(sum(df$sex=="W")/count(df["age"])*100,2)),"%)","\n")
 cat("Minimum age = ",as.character(min(df$age)),"\n")
@@ -78,4 +80,6 @@ print(stat1,row.names = FALSE)
 ```
   
 There is no actual information how many men/women are infected.  
-Here is the last info the Ministry of Health has published:  
+Here is the last deaths per hospital info the Ministry of Health has published:  
+  
+![](min_of_health_20200417.jpg)
