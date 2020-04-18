@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
---------------------------------------------------------------------------------------------
+---
   
 There is no official public data about all victims of COVID-19 in Israel.  
 Ministry of Health publishes daily summary statistics - number of deaths total and per each hospital.  
@@ -24,7 +24,7 @@ library(openxlsx)
 library(ggplot2)
 library(dplyr)
 library(qwraps2)
-#library(knitr)
+library(knitr)
 
 # version 1 - sheet ynet
 #df = read.xlsx('corona_deaths_hist_israel.xlsx',sheet='ynet',startRow=3,cols=(0:6))
@@ -72,12 +72,33 @@ cat("Median age = ",as.character(median(df$age)),"\n")
 #max(df["age"])
 #table(df$sex)
 ```
+  
+---
+```{r count_per_bin, echo=FALSE,warning=FALSE}
+stat2 <- df %>% select(age) %>%  mutate(age_group = case_when(age >= 0  & age <= 10 ~ '0-10',
+                                                    age >= 11  & age <= 20 ~ '11-20',
+                                                    age >= 21  & age <= 30 ~ '21-30',
+                                                    age >= 31  & age <= 40 ~ '31-40',
+                                                    age >= 41  & age <= 50 ~ '41-50',
+                                                    age >= 51  & age <= 60 ~ '51-60',
+                                                    age >= 61  & age <= 70 ~ '61-70',
+                                                    age >= 71  & age <= 80 ~ '71-80',
+                                                    age >= 81  & age <= 90 ~ '81-90',
+                                                    age >= 91  & age <= 100 ~ '91-100',
+                                                    age >= 101 ~ '101 and more')) %>%
+  group_by(age_group) %>% summarise(count=n()) %>%
+  mutate(freq=paste0(round(100*count/sum(count),1),"%")) 
+  knitr::kable(stat2)
+```
+  
+---  
+
 Age by sex:
 ```{r, echo=FALSE,warning=FALSE}
 stat1 = 
 df %>% group_by(sex) %>% summarise(mean = mean(age), median = median(age), count = n())
 stat1 = data.frame(stat1)
-print(stat1,row.names = FALSE)
+knitr::kable(stat1)
 ```
   
 There is no actual information how many men/women are infected.  
