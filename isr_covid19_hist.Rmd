@@ -1,7 +1,7 @@
 ---
 title: "COVID-19 victims in Israel"
 author: "Dennis Yaroshevich"
-date: "April 19, 2020, 23:06 GMT+3 "
+date: "April 20, 2020, 23:28 GMT+3 "
 output: html_document
 ---
 
@@ -45,7 +45,7 @@ df[df$sex=="w", "sex"] = "W"
 ```{r histogram, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 #df$cut <-  cut(df$age, seq(0,100,10))
 p = ggplot(df, aes(age)) + geom_histogram(color="black", fill = "dodgerblue3", alpha=0.3, breaks=seq(0,100,10)) +
-  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-19")
+  scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") + ggtitle("Covid19 victims in Israel histogram - 2020-Apr-20")
   #stat_bin(aes(age), breaks=seq(0,100,10))
 # breaks=seq(0,100,10)
 p
@@ -53,7 +53,7 @@ p
 ```{r histogram2, echo=FALSE}
 p2 = ggplot(df, aes(x=age, fill=sex,color=sex)) + geom_histogram(alpha=0.3, breaks=seq(0,100,10)) +
   scale_x_continuous(breaks=seq(0,100,10)) + ylab("Number of victims") +xlab("Age") +
-  ggtitle("Covid19 victims in Israel histogram - 2020-Apr-19")
+  ggtitle("Covid19 victims in Israel histogram - 2020-Apr-20")
 
 p2
 ```
@@ -62,7 +62,7 @@ Some statistics about victims.
 Age:
 ```{r, echo=FALSE}
 #summary(df$age)
-cat("Number of observations = ",as.character(count(df["age"])),". Officially published number is 172. \n")
+cat("Number of observations = ",as.character(count(df["age"])),". Officially published number is 177. \n")
 cat("Men = ",as.character(sum(df$sex=="M")), "(",as.character(round(sum(df$sex=="M")/count(df["age"])*100,2)),"%)","\n")
 cat("Women = ",as.character(sum(df$sex=="W")), "(",as.character(round(sum(df$sex=="W")/count(df["age"])*100,2)),"%)","\n")
 cat("Minimum age = ",as.character(min(df$age)),"\n")
@@ -104,4 +104,4 @@ knitr::kable(stat1)
 There is no actual information how many men/women are infected.  
 Here is the last deaths per hospital info the Ministry of Health has published:  
   
-![](min_of_health_20200419.jpg)
+![](min_of_health_20200420.jpg)
