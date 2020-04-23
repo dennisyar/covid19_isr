@@ -9,6 +9,7 @@ This repository has:
 1) data file in xlsx format  
 2) html file with histograms by age groups  
 3) R markdown file to build HTML report  
+4) Tableau dashboard (in-progress): 
 
 HTML report published to: https://covid19isr.blob.core.windows.net/covid19isr/isr_covid19_hist.html  
 
