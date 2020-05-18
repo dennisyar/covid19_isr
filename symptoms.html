@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-30-Apr-2020-and-were-found-Positive-to-the-virus.">This is glimp on the syptomps frequency of those who were tested to COVID-19 in Israel during 11-Mar-2020 and 30-Apr-2020 and were found Positive to the virus.<a class="anchor-link" href="#This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-30-Apr-2020-and-were-found-Positive-to-the-virus.">&#182;</a></h2><h3 id="Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">Scroll down to the to bottom of the page to see results.<a class="anchor-link" href="#Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">&#182;</a></h3><p>Data source: <a href="https://data.gov.il/dataset/covid-19/resource/d337959a-020a-4ed3-84f7-fca182292308">https://data.gov.il/dataset/covid-19/resource/d337959a-020a-4ed3-84f7-fca182292308</a></p>
+<h2 id="This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-14-May-2020-and-were-found-Positive-to-the-virus.">This is glimp on the syptomps frequency of those who were tested to COVID-19 in Israel during 11-Mar-2020 and 14-May-2020 and were found Positive to the virus.<a class="anchor-link" href="#This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-14-May-2020-and-were-found-Positive-to-the-virus.">&#182;</a></h2><h3 id="Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">Scroll down to the to bottom of the page to see results.<a class="anchor-link" href="#Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">&#182;</a></h3><p>Data source: <a href="https://data.gov.il/dataset/covid-19/">https://data.gov.il/dataset/covid-19/</a></p>
 
 </div>
 </div>
@@ -11795,10 +11795,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;corona_tested_individuals_ver_006.csv&#39;</span><span class="p">,</span><span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;corona_tested_individuals_ver_0010.csv&#39;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -11808,7 +11809,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
@@ -11829,18 +11830,18 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>    test_date  cough  fever  sore_throat  shortness_of_breath  head_ache  \
-0  2020-04-30    0.0    0.0          0.0                  0.0        0.0   
-1  2020-04-30    1.0    0.0          0.0                  0.0        0.0   
-2  2020-04-30    0.0    1.0          0.0                  0.0        0.0   
-3  2020-04-30    1.0    0.0          0.0                  0.0        0.0   
-4  2020-04-30    1.0    0.0          0.0                  0.0        0.0   
+0  2020-05-14    1.0    0.0          0.0                  0.0        0.0   
+1  2020-05-14    0.0    0.0          0.0                  0.0        0.0   
+2  2020-05-14    1.0    0.0          0.0                  0.0        0.0   
+3  2020-05-14    0.0    0.0          0.0                  0.0        0.0   
+4  2020-05-14    0.0    0.0          0.0                  0.0        0.0   
 
-  corona_result age_60_and_above gender test_indication  
-0         שלילי              NaN   נקבה           Other  
-1         שלילי              NaN   נקבה           Other  
-2         שלילי              NaN    זכר           Other  
-3         שלילי              NaN   נקבה           Other  
-4         שלילי              NaN    זכר           Other  
+  corona_result age_60_and_above gender         test_indication  
+0         שלילי                0      0                  Abroad  
+1         שלילי                0      0                   Other  
+2         שלילי                0      0  Contact with confirmed  
+3         שלילי                0      0                   Other  
+4         שלילי                0      0                   Other  
 </pre>
 </div>
 </div>
@@ -11851,7 +11852,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_positive</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">corona_result</span><span class="o">==</span><span class="s1">&#39;חיובי&#39;</span><span class="p">]</span>
@@ -11864,7 +11865,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="n">data_positive</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -11881,7 +11882,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[11]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -11914,27 +11915,27 @@ div#notebook {
   <tbody>
     <tr>
       <th>count</th>
-      <td>14696.000000</td>
-      <td>14696.000000</td>
-      <td>14728.000000</td>
-      <td>14728.000000</td>
-      <td>14728.000000</td>
+      <td>14533.000000</td>
+      <td>14533.000000</td>
+      <td>14533.000000</td>
+      <td>14533.000000</td>
+      <td>14533.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>0.448013</td>
-      <td>0.378266</td>
-      <td>0.103612</td>
-      <td>0.079033</td>
-      <td>0.151752</td>
+      <td>0.431501</td>
+      <td>0.367715</td>
+      <td>0.102456</td>
+      <td>0.078167</td>
+      <td>0.150485</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>0.497307</td>
-      <td>0.484971</td>
-      <td>0.304767</td>
-      <td>0.269800</td>
-      <td>0.358792</td>
+      <td>0.495303</td>
+      <td>0.482200</td>
+      <td>0.303258</td>
+      <td>0.268443</td>
+      <td>0.357559</td>
     </tr>
     <tr>
       <th>min</th>
@@ -11989,7 +11990,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">data_positive</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -12037,24 +12038,24 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 
-Tests were taken during 2020-03-11 and 2020-04-30
-Number of positive tests = 14729
+Tests were taken during 2020-03-11 and 2020-05-14
+Number of positive tests = 14533
 
 Gender:
-Male = 51.05%
-Female = 41.01%
+Male = 54.88%
+Female = 43.29%
 
 Positive tests, distinct symptoms : 
-Cough = 44.80%
-Fever = 37.83%
-Sore Throat = 10.36%
-Shortness Of Breath = 7.90%
-Head Ache = 15.18%
+Cough = 43.15%
+Fever = 36.77%
+Sore Throat = 10.25%
+Shortness Of Breath = 7.82%
+Head Ache = 15.05%
 
-No symptoms at all = 35.89%
+No symptoms at all = 37.96%
 
-Cough and Fever = 24.12%
-Sore Throat and Fever = 5.22%
+Cough and Fever = 23.46%
+Sore Throat and Fever = 5.11%
 </pre>
 </div>
 </div>
