@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-28-May-2020-and-were-found-Positive-to-the-virus.">This is glimp on the syptomps frequency of those who were tested to COVID-19 in Israel during 11-Mar-2020 and 28-May-2020 and were found Positive to the virus.<a class="anchor-link" href="#This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-28-May-2020-and-were-found-Positive-to-the-virus.">&#182;</a></h2><h3 id="Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">Scroll down to the to bottom of the page to see results.<a class="anchor-link" href="#Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">&#182;</a></h3><p>Data source: <a href="https://data.gov.il/dataset/covid-19/">https://data.gov.il/dataset/covid-19/</a></p>
+<h2 id="This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-16-Jul-2020-and-were-found-Positive-to-the-virus.">This is glimp on the syptomps frequency of those who were tested to COVID-19 in Israel during 11-Mar-2020 and 16-Jul-2020 and were found Positive to the virus.<a class="anchor-link" href="#This-is-glimp-on-the-syptomps-frequency-of-those-who-were-tested-to-COVID-19-in-Israel-during-11-Mar-2020-and-16-Jul-2020-and-were-found-Positive-to-the-virus.">&#182;</a></h2><h3 id="Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">Scroll down to the to bottom of the page to see results.<a class="anchor-link" href="#Scroll-down-to-the-to-bottom-of-the-page-to-see-results.">&#182;</a></h3><p>Data source: <a href="https://data.gov.il/dataset/covid-19/">https://data.gov.il/dataset/covid-19/</a></p>
 
 </div>
 </div>
@@ -11798,8 +11798,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;corona_tested_individuals_ver_0014.csv&#39;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;corona_tested_individuals_ver_0045.csv&#39;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> 
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;test_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;test_date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11812,7 +11813,138 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_date</th>
+      <th>cough</th>
+      <th>fever</th>
+      <th>sore_throat</th>
+      <th>shortness_of_breath</th>
+      <th>head_ache</th>
+      <th>corona_result</th>
+      <th>age_60_and_above</th>
+      <th>gender</th>
+      <th>test_indication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-07-16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>שלילי</td>
+      <td>No</td>
+      <td>נקבה</td>
+      <td>Other</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-07-16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>שלילי</td>
+      <td>No</td>
+      <td>זכר</td>
+      <td>Other</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-07-16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>שלילי</td>
+      <td>No</td>
+      <td>נקבה</td>
+      <td>Other</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020-07-16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>שלילי</td>
+      <td>No</td>
+      <td>נקבה</td>
+      <td>Other</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020-07-16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>שלילי</td>
+      <td>Yes</td>
+      <td>נקבה</td>
+      <td>Other</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_positive</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">corona_result</span><span class="o">==</span><span class="s1">&#39;חיובי&#39;</span><span class="p">]</span>
+<span class="n">data_positive</span><span class="p">[</span><span class="s1">&#39;year_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_positive</span><span class="o">.</span><span class="n">test_date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11828,37 +11960,17 @@ div#notebook {
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>    test_date  cough  fever  sore_throat  shortness_of_breath  head_ache  \
-0  2020-05-28      1      0            0                    0          0   
-1  2020-05-28      0      0            0                    0          0   
-2  2020-05-28      0      0            0                    0          0   
-3  2020-05-28      0      0            0                    0          0   
-4  2020-05-28      0      0            0                    0          0   
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\Users\Dennis\AppData\Local\Continuum\anaconda3\lib\site-packages\ipykernel_launcher.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
-  corona_result age_60_and_above gender test_indication  
-0         שלילי                0    זכר           Other  
-1         שלילי                0    זכר           Other  
-2         שלילי                0    זכר           Other  
-3         שלילי                0   נקבה           Other  
-4         שלילי                0   נקבה           Other  
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  
 </pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_positive</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">corona_result</span><span class="o">==</span><span class="s1">&#39;חיובי&#39;</span><span class="p">]</span>
-</pre></div>
-
-</div>
 </div>
 </div>
 
@@ -11915,27 +12027,27 @@ div#notebook {
   <tbody>
     <tr>
       <th>count</th>
-      <td>14621.000000</td>
-      <td>14621.000000</td>
-      <td>14621.000000</td>
-      <td>14621.000000</td>
-      <td>14621.000000</td>
+      <td>41458.000000</td>
+      <td>41458.000000</td>
+      <td>41458.000000</td>
+      <td>41458.000000</td>
+      <td>41458.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>0.424458</td>
-      <td>0.379044</td>
-      <td>0.128172</td>
-      <td>0.091102</td>
-      <td>0.197456</td>
+      <td>0.261276</td>
+      <td>0.270877</td>
+      <td>0.105022</td>
+      <td>0.053934</td>
+      <td>0.179748</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>0.494277</td>
-      <td>0.485166</td>
-      <td>0.334292</td>
-      <td>0.287764</td>
-      <td>0.398093</td>
+      <td>0.439336</td>
+      <td>0.444418</td>
+      <td>0.306585</td>
+      <td>0.225890</td>
+      <td>0.383982</td>
     </tr>
     <tr>
       <th>min</th>
@@ -11988,6 +12100,14 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Symptoms-during-all-time">Symptoms during all time<a class="anchor-link" href="#Symptoms-during-all-time">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
@@ -11998,11 +12118,11 @@ div#notebook {
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
       <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
       <span class="s2">&quot;Tests were taken during &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">test_date</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">test_date</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> 
-      <span class="s2">&quot;Number of positive tests = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data_positive</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+      <span class="s2">&quot;Number of positive tests = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
       <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
       <span class="s2">&quot;Gender:&quot;</span> <span class="o">+</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-      <span class="s2">&quot;Male = &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">data_positive</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;זכר&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">data_positive</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> 
-      <span class="s2">&quot;Female = &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">data_positive</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;נקבה&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">data_positive</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+      <span class="s2">&quot;Male = &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">data_positive</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;זכר&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> 
+      <span class="s2">&quot;Female = &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">data_positive</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;נקבה&#39;</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
       <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
       <span class="s2">&quot;Positive tests, distinct symptoms : </span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> 
       <span class="s2">&quot;Cough = &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;cough&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
@@ -12038,24 +12158,311 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 
-Tests were taken during 2020-03-11 and 2020-05-28
-Number of positive tests = 14621
+Tests were taken during 2020-03-11 00:00:00 and 2020-07-16 00:00:00
+Number of positive tests = 41458
 
 Gender:
-Male = 54.14%
-Female = 43.00%
+Male = 52.84%
+Female = 45.50%
 
 Positive tests, distinct symptoms : 
-Cough = 42.45%
-Fever = 37.90%
-Sore Throat = 12.82%
-Shortness Of Breath = 9.11%
-Head Ache = 19.75%
+Cough = 26.13%
+Fever = 27.09%
+Sore Throat = 10.50%
+Shortness Of Breath = 5.39%
+Head Ache = 17.97%
 
-No symptoms at all = 34.20%
+No symptoms at all = 50.96%
 
-Cough and Fever = 22.94%
-Sore Throat and Fever = 5.94%
+Cough and Fever = 13.31%
+Sore Throat and Fever = 4.49%
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lets-see-per-each-month">Lets see per each month<a class="anchor-link" href="#Lets-see-per-each-month">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_for_period</span><span class="p">(</span><span class="n">period</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number of positive results are: &#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No symptoms at all = &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">cough</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> 
+                                                                  <span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">fever</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> 
+                                                                  <span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">fever</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> 
+                                                                  <span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">sore_throat</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span>
+                                                                  <span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">shortness_of_breath</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> 
+                                                                  <span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">head_ache</span><span class="o">==</span><span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distinct symptoms for this period:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">((</span><span class="nb">round</span><span class="p">(</span><span class="n">data_positive</span><span class="p">[</span><span class="n">data_positive</span><span class="o">.</span><span class="n">year_month</span><span class="o">==</span><span class="n">period</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,:]</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>March - 2020</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_for_period</span><span class="p">(</span><span class="s1">&#39;2020-03&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The number of positive results are: 
+5894
+
+No symptoms at all = 25.72%
+
+Distinct symptoms for this period:
+cough                  48.88%
+fever                   47.2%
+sore_throat            14.71%
+shortness_of_breath    12.62%
+head_ache              21.94%
+Name: mean, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Apr - 2020</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_for_period</span><span class="p">(</span><span class="s1">&#39;2020-04&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The number of positive results are: 
+8803
+
+No symptoms at all = 38.00%
+
+Distinct symptoms for this period:
+cough                  39.94%
+fever                  33.07%
+sore_throat            11.88%
+shortness_of_breath     7.02%
+head_ache              18.47%
+Name: mean, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>May - 2020</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_for_period</span><span class="p">(</span><span class="s1">&#39;2020-05&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The number of positive results are: 
+943
+
+No symptoms at all = 58.43%
+
+Distinct symptoms for this period:
+cough                  21.21%
+fever                  20.36%
+sore_throat             8.38%
+shortness_of_breath     3.71%
+head_ache              15.59%
+Name: mean, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>June -2020</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_for_period</span><span class="p">(</span><span class="s1">&#39;2020-06&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The number of positive results are: 
+7854
+
+No symptoms at all = 54.35%
+
+Distinct symptoms for this period:
+cough                  20.24%
+fever                  23.49%
+sore_throat            10.49%
+shortness_of_breath     3.59%
+head_ache               18.5%
+Name: mean, dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>July-2020 (till 2020-07-16)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_for_period</span><span class="p">(</span><span class="s1">&#39;2020-07&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The number of positive results are: 
+17964
+
+No symptoms at all = 63.73%
+
+Distinct symptoms for this period:
+cough                  14.72%
+fever                  19.48%
+sore_throat             8.56%
+shortness_of_breath      3.1%
+head_ache              16.33%
+Name: mean, dtype: object
 </pre>
 </div>
 </div>
